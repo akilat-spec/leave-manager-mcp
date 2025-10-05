@@ -1,22 +1,24 @@
-# Dockerfile
+# Use slim Python image
+FROM python:3.12-slim-bookworm
 
-FROM python:3.11-slim
-
+# Set working directory
 WORKDIR /app
 
-# Install build tools if needed
-RUN apt-get update && apt-get install -y build-essential --no-install-recommends && rm -rf /var/lib/apt/lists/*
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
+# Copy project files
 COPY . .
 
-# Use environment variables for DB settings
-ENV MYSQL_HOST=localhost
-ENV MYSQL_USER=root
-ENV MYSQL_PASSWORD=
-ENV MYSQL_DB=leave_db
+# Install venv and create virtual environment
+RUN python -m venv .venv
+RUN . .venv/bin/activate && pip install --upgrade pip setuptools wheel
 
-# Default command
+# Install dependencies using uv or pip
+RUN . .venv/bin/activate && pip install -r requirements.txt
+
+# Set environment variables
+ENV PATH="/app/.venv/bin:$PATH"
+
+# Expose port (if needed)
+EXPOSE 8000
+
+# Run your MCP server
 CMD ["python", "server.py"]
