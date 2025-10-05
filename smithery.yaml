@@ -1,14 +1,10 @@
-# smithery.yaml
-
-name: LeaveManager
-type: mcp
+name: my-mcp-server
+type: python
+entrypoint: app.py       # Your main script
+dependencies:
+  - python>=3.11
+  - mysql-connector-python
+  - fastmcp
 build:
   commands:
     - pip install -r requirements.txt
-run:
-  command: python server.py
-  env:
-    MYSQL_HOST: ${MYSQL_HOST}
-    MYSQL_USER: ${MYSQL_USER}
-    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    MYSQL_DB: ${MYSQL_DB}
