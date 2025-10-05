@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my-mcp-server"
+version = "0.1.0"
+description = "FastMCP server project"
+authors = [
+    { name="Your Name", email="you@example.com" }
+]
+dependencies = [
+    "mysql-connector-python",
+    "fastmcp",
+    "python-Levenshtein"
+]
+
+[tool.smithery]
+entrypoint = "app.py"
+startCommand = { command = "python", args = ["app.py"] }
