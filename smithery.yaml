@@ -1,10 +1,14 @@
 name: my-mcp-server
-type: python
-entrypoint: app.py       # Your main script
+runtime: python        # Must be exactly "python"
+entrypoint: server.py     # Main script to run
 dependencies:
-  - python>=3.11
   - mysql-connector-python
   - fastmcp
+  - python-Levenshtein
 build:
   commands:
     - pip install -r requirements.txt
+startCommand:         # This tells Smithery how to start your app
+  command: python
+  args:
+    - server.py
