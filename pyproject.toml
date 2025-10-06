@@ -16,5 +16,7 @@ dependencies = [
 ]
 
 [tool.smithery]
-entrypoint = "app.py"
-startCommand = { command = "python", args = ["app.py"] }
+entrypoint = "server.py"
+startCommand = { command = "python", args = ["server.py"] }
+
+
