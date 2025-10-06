@@ -7,7 +7,7 @@ name = "my-mcp-server"
 version = "0.1.0"
 description = "FastMCP server project"
 authors = [
-    { name="Your Name", email="you@example.com" }
+    { name="akila", email="akila.t@techovirish.com" }
 ]
 dependencies = [
     "mysql-connector-python",
