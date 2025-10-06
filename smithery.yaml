@@ -1,10 +1,10 @@
 name: my-mcp-server
-runtime: python           # Must be exactly "python"
-entrypoint: server.py     # Main script to run
+runtime: python
+entrypoint: server.py
 dependencies:
   - mysql-connector-python
   - fastmcp
-  - python-levenshtein    # fixed spelling
+  - python-levenshtein
 build:
   commands:
     - pip install -r requirements.txt

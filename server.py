@@ -1,5 +1,5 @@
 # server.py
-
+import os
 import mysql.connector
 from fastmcp import FastMCP
 from typing import List, Optional, Dict, Any
@@ -17,10 +17,10 @@ mcp = FastMCP("LeaveManager")
 # -------------------------------
 def get_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",        # your MySQL password (will override via env later)
-        database="leave_db"
+       host=os.getenv("DB_HOST", "localhost"),
+        user=os.getenv("DB_USER", "root"),
+        password=os.getenv("DB_PASSWORD", ""),
+        database=os.getenv("DB_NAME", "leave_db")
     )
 
 # -------------------------------
