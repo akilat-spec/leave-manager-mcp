@@ -2,14 +2,12 @@ FROM python:3.12-slim-bookworm
 
 WORKDIR /app
 
-# Copy only necessary files
-
-COPY requirements.txt server.py ./
-# COPY requirements.txt .
-# COPY server.py .
-
-# Install dependencies
+# Copy requirements and install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the server directly
+# Copy server file
+COPY server.py .
+
+# Run the server
 CMD ["python", "server.py"]
