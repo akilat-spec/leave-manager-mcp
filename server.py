@@ -313,4 +313,7 @@ if __name__ == "__main__":
         import Levenshtein
     except ImportError:
         print("Please install python-levenshtein: pip install python-levenshtein")
-    mcp.run(transport='stdio')
+
+    # Use HTTP transport for hosted server
+    mcp.run(transport='http', host='0.0.0.0', port=8000)
+

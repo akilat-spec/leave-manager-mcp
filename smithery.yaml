@@ -2,9 +2,10 @@ name: my-mcp-server
 runtime: python
 entrypoint: server.py
 dependencies:
-  - mysql-connector-python
-  - fastmcp
-  - python-levenshtein
+  - mysql-connector-python==9.4.0
+  - fastmcp==2.12.4
+  - python-levenshtein==0.27.1
+  - uvicorn
 build:
   commands:
     - pip install -r requirements.txt
