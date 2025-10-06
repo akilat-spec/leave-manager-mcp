@@ -5,7 +5,13 @@ from fastmcp import FastMCP
 from typing import List, Optional, Dict, Any
 import re
 from difflib import SequenceMatcher
-import Levenshtein  # pip install python-levenshtein
+import Levenshtein
+import logging
+import sys
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 # -------------------------------
 # MCP server
@@ -13,15 +19,51 @@ import Levenshtein  # pip install python-levenshtein
 mcp = FastMCP("LeaveManager")
 
 # -------------------------------
-# MySQL connection
+# MySQL connection for no password setup
 # -------------------------------
 def get_connection():
-    return mysql.connector.connect(
-       host=os.getenv("DB_HOST", "localhost"),
-        user=os.getenv("DB_USER", "root"),
-        password=os.getenv("DB_PASSWORD", ""),
-        database=os.getenv("DB_NAME", "leave_db")
-    )
+    try:
+        # Try multiple connection methods
+        connection_params = [
+            # Method 1: No password parameter at all
+            {
+                "host": os.getenv("DB_HOST", "localhost"),
+                "user": os.getenv("DB_USER", "root"), 
+                "database": os.getenv("DB_NAME", "leave_db"),
+                "connection_timeout": 10
+            },
+            # Method 2: Empty password
+            {
+                "host": os.getenv("DB_HOST", "localhost"),
+                "user": os.getenv("DB_USER", "root"),
+                "password": "",
+                "database": os.getenv("DB_NAME", "leave_db"),
+                "connection_timeout": 10
+            }
+        ]
+        
+        for params in connection_params:
+            try:
+                conn = mysql.connector.connect(**params)
+                logger.info("✅ Database connection established successfully")
+                return conn
+            except mysql.connector.Error as e:
+                logger.warning(f"Connection attempt failed: {e}")
+                continue
+        
+        # If all methods fail
+        logger.error("All database connection attempts failed")
+        if os.getenv("ENVIRONMENT", "development") == "development":
+            logger.warning("Using mock mode for development")
+            return None
+        raise mysql.connector.Error("Could not connect to database")
+        
+    except Exception as e:
+        logger.error(f"Unexpected error during database connection: {e}")
+        if os.getenv("ENVIRONMENT", "development") == "development":
+            logger.warning("Using mock mode for development")
+            return None
+        raise
 
 # -------------------------------
 # AI-Powered Name Matching Utilities
