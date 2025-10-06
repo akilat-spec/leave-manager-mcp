@@ -1,6 +1,6 @@
-test_db.py
-*.pyc
 __pycache__/
+*.pyc
 .env
 .git/
 tests/
+test_db.py
