@@ -1,15 +1,25 @@
-"remotes": [
-  {
-    "type": "streamable-http",
-    "url": "https://thin-deer-burn.loca.lt/mcp",
-    "headers": [
-      {
-        "name": "Authorization",
-        "description": "Bearer token for Smithery authentication",
-        "isRequired": true,
-        "isSecret": true,
-        "value": "Bearer 33285d9f-64ad-400f-8650-a90ed8e26a23"
-      }
-    ]
-  }
-]
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-16/server.schema.json",
+  "name": "ai.smithery/akilat-spec-leave-manager-mcp",
+  "description": "Track and manage employee time off with quick balance lookups and streamlined applications.",
+  "version": "1.16.1",
+  "repository": {
+    "url": "https://github.com/akilat-spec/leave-manager-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://thin-deer-burn.loca.lt/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer token for Smithery authentication",
+          "isRequired": true,
+          "isSecret": true,
+          "value": "Bearer 33285d9f-64ad-400f-8650-a90ed8e26a23"
+        }
+      ]
+    }
+  ]
+}
