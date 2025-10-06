@@ -350,12 +350,14 @@ I can help you with:
 # -------------------------------
 # Run MCP server
 # -------------------------------
-if __name__ == "__main__":
-    try:
-        import Levenshtein
-    except ImportError:
-        print("Please install python-levenshtein: pip install python-levenshtein")
+# if __name__ == "__main__":
+#     try:
+#         import Levenshtein
+#     except ImportError:
+#         print("Please install python-levenshtein: pip install python-levenshtein")
 
-    # Use HTTP transport for hosted server
-    mcp.run(transport='http', host='0.0.0.0', port=8000)
+#     # Use HTTP transport for hosted server
+#     mcp.run(transport='http', host='0.0.0.0', port=8000)
+if __name__ == "__main__":
+    mcp.run(transport='stdio') 
 

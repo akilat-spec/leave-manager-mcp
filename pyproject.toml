@@ -3,12 +3,8 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "my-mcp-server"
+name = "leave-manager-mcp"
 version = "0.1.0"
-description = "FastMCP server project"
-authors = [
-    { name="akila", email="akila.t@techovirish.com" }
-]
 dependencies = [
     "mysql-connector-python",
     "fastmcp",
@@ -18,5 +14,3 @@ dependencies = [
 [tool.smithery]
 entrypoint = "server.py"
 startCommand = { command = "python", args = ["server.py"] }
-
-

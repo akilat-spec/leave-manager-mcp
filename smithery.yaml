@@ -1,4 +1,4 @@
-name: my-mcp-server
+name: leave-manager-mcp
 runtime: python
 entrypoint: server.py
 dependencies:
