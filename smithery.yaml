@@ -1,14 +1,27 @@
-name: leave-manager-mcp
-runtime: python
-entrypoint: server.py
-dependencies:
-  - mysql-connector-python==9.4.0
-  - fastmcp==2.12.4
-  - python-levenshtein==0.27.1
-build:
-  commands:
-    - pip install -r requirements.txt
+name: LeaveManager
+version: "1.0.0"
+
 startCommand:
-  command: python
-  args:
-    - server.py
+  type: "http"
+  command: ["python", "main.py"]
+  port: 8080
+  path: "/mcp"
+  configSchema:
+    type: object
+    required: ["DB_HOST","DB_USER","DB_PASSWORD","DB_NAME"]
+    properties:
+      DB_HOST:
+        type: string
+        title: "Database host"
+      DB_USER:
+        type: string
+        title: "Database user"
+      DB_PASSWORD:
+        type: string
+        title: "Database password"
+      DB_NAME:
+        type: string
+        title: "Database name"
+      DB_PORT:
+        type: string
+        title: "Database port"
