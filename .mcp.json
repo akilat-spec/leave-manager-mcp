@@ -19,7 +19,14 @@
           "isSecret": true,          
           "value": "Bearer 33285d9f-64ad-400f-8650-a90ed8e26a23"
         }
-      ]
+      ],
+      "mysql": {
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "mcp_user",
+        "password": "root",
+        "database": "leave_mcp"
+      }
     }
   ]
 }
