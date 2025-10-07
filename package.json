@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.19.1"
+  },
+  "name": "leave-manager-mcp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akilat-spec/leave-manager-mcp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/akilat-spec/leave-manager-mcp/issues"
+  },
+  "homepage": "https://github.com/akilat-spec/leave-manager-mcp#readme"
+}
