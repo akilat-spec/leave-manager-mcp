@@ -38,7 +38,7 @@ def get_connection():
             port=parsed.port or 3306,
         )
     return mysql.connector.connect(
-        host=os.environ.get("DB_HOST", "127.0.0.1"),
+        host=os.environ.get("DB_HOST", "103.174.10.72"),
         user=os.environ.get("DB_USER", "leave_mcp"),
         password=os.environ.get("DB_PASSWORD", ""),
         database=os.environ.get("DB_NAME", "leave_mcp"),
