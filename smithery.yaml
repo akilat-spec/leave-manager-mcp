@@ -13,15 +13,15 @@ startCommand:
     DB_HOST:
       type: string
       title: "Database host"
-      default: "host.docker.internal"
+      default: "103.174.10.72"
     DB_USER:
       type: string
       title: "Database user"
-      default: "root"
+      default: "leave_mcp"
     DB_PASSWORD:
       type: string
       title: "Database password"
-      default: "root"
+      default: "PY@4rjQu%ha0byc7"
     DB_NAME:
       type: string
       title: "Database name"

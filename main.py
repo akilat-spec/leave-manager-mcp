@@ -36,17 +36,17 @@ def get_connection():
     if db_url:
         parsed = urllib.parse.urlparse(db_url)
         return mysql.connector.connect(
-            host=parsed.hostname or "localhost",
-            user=parsed.username or "root",
-            password=parsed.password or "root",
+            host=parsed.hostname or "103.174.10.72",
+            user=parsed.username or "leave_mcp",
+            password=parsed.password or "PY@4rjQu%ha0byc7",
             database=(parsed.path.lstrip("/") if parsed.path else ""),
             port=parsed.port or 3306,
         )
 
     return mysql.connector.connect(
-        host=os.environ.get("DB_HOST", "localhost"),
-        user=os.environ.get("DB_USER", "root"),
-        password=os.environ.get("DB_PASSWORD", "root"),
+        host=os.environ.get("DB_HOST", "103.174.10.72"),
+        user=os.environ.get("DB_USER", "leave_mcp"),
+        password=os.environ.get("DB_PASSWORD", "PY@4rjQu%ha0byc7"),
         database=os.environ.get("DB_NAME", "leave_mcp"),
         port=int(os.environ.get("DB_PORT", "3306")),
     )
